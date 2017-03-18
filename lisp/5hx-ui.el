@@ -80,7 +80,7 @@
 ;;    (powerline-default-theme))
 
 
-(set-face-attribute 'mode-line-buffer-id nil :foreground "white")
+;;(set-face-attribute 'mode-line-buffer-id nil :foreground "white")
 
 
 

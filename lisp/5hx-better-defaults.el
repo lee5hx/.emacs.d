@@ -39,8 +39,11 @@
 ;;Remove trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-
+;;dired
 (require 'dired-x)
+(setq dired-dwim-target t)
+(put 'dired-find-alternate-file 'disabled nil)
+
 
 
 (provide '5hx-better-defaults)
