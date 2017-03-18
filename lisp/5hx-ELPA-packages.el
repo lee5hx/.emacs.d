@@ -9,7 +9,6 @@
 
 (setq vc-handled-backends nil)
 
-
 ;; full screen magit-status
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
@@ -21,6 +20,8 @@
   (interactive)
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
+
+
 
 
 (provide '5hx-ELPA-packages)

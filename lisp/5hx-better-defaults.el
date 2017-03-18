@@ -40,6 +40,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
+(require 'dired-x)
 
 
 (provide '5hx-better-defaults)

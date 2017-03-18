@@ -10,9 +10,9 @@
 (require '5hx-ui)
 (require '5hx-better-defaults)
 (require '5hx-better-editor)
-;(require '5hx-shell)
+;;(require '5hx-shell)
 (require '5hx-ELPA-packages)
-
+;;(require '5hx-java)
 (require '5hx-keybinds)
 
 ;; 快速打开配置文件
@@ -24,7 +24,7 @@
 ;;(global-set-key (kbd "<f2>") 'open-init-file)
 
 ; 开启全局 Company 补全
-(global-company-mode 1)
+;;(global-company-mode 1)
 
 
 

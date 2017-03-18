@@ -54,6 +54,8 @@
 
 
 
+(global-set-key (kbd "s-e") 'recentf-open-files)
+
 
 
 (provide '5hx-keybinds)

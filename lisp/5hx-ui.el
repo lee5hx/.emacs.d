@@ -41,23 +41,80 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;;Do not show thees modes in the mode line.
+;;(require 'diminish)
 ;;(diminish 'visual-line-mode)
 ;;(diminish 'abbrev-mode)
 
+;;ace-window
+(use-package ace-window)
+(ace-window-display-mode t)
+
 ;;powerline
-(use-package powerline
-  :ensure t
+
+(when (image-type-available-p 'xpm)
+  (use-package powerline
+      :config
+    (setq powerline-display-buffer-size nil)
+    (setq powerline-display-mule-info nil)
+    (setq powerline-display-hud nil)
+
+    (when (display-graphic-p)
+      (powerline-default-theme)
+     (remove-hook 'focus-out-hook 'powerline-unset-selected-window))))
+
+
+
+
+;;(use-package powerline
+;;  :ensure t
+;;  :config
+;;    (setq powerline-arrow-shape 'arrow14)
+;;    (setq powerline-default-separator-dir '(right . left))
+
+;;    (custom-set-faces
+;;     '(mode-line ((t (:foreground "#030303" :background "#6b6b6b" :box nil))))
+;;     '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#6b6b6b" :box nil)))))
+
+;;    (setq powerline-color1 "#49483E")
+;;    (setq powerline-color2 "#333333")
+;;    (powerline-default-theme))
+
+
+(set-face-attribute 'mode-line-buffer-id nil :foreground "white")
+
+
+
+
+(use-package spaceline :ensure t)
+(use-package spaceline-config
+  :ensure nil
+  :after spaceline
   :config
-    (setq powerline-arrow-shape 'arrow14)
-    (setq powerline-default-separator-dir '(right . left))
+  (setq-default powerline-default-separator 'wave
+                powerline-height 18
+                spaceline-highlight-face-func 'spaceline-highlight-face-modified)
+  (spaceline-toggle-persp-name-off)
+  (spaceline-toggle-workspace-number-off)
+  (spaceline-toggle-version-control-on)
 
-    ;;(custom-set-faces
-     ;;'(mode-line ((t (:foreground "#030303" :background "#6b6b6b" :box nil))))
-     ;;'(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#6b6b6b" :box nil)))))
+  (spaceline-emacs-theme)
+  (spaceline-define-segment version-control
+    "Version control information."
+    (powerline-raw (s-trim vc-mode))
+    :when vc-mode))
 
-    ;;(setq powerline-color1 "#49483E")
-   ;; (setq powerline-color2 "#333333")
-    (powerline-default-theme))
+
+
+(use-package beacon
+  :ensure t
+  :diminish beacon-mode
+  :init
+  (setq beacon-push-mark 35)
+  (setq beacon-color "#666600")
+  :config
+  (beacon-mode 1))
+
+
 
 
 
