@@ -22,20 +22,7 @@
   (jump-to-register :magit-fullscreen))
 
 
-;;exec-path-from-shell
-(use-package exec-path-from-shell
-  :if (and (eq system-type 'darwin) (display-graphic-p))
-  :ensure t
-  :pin melpa-stable
-  :config
-  (progn
-     (when (string-match-p "/zsh$" (getenv "SHELL"))
-      ;; Use a non-interactive login shell.  A login shell, because my
-      ;; environment variables are mostly set in `.zprofile'.
-       (setq exec-path-from-shell-arguments '("-l")))
 
-     (exec-path-from-shell-initialize)
-     ))
 
 (use-package projectile
   :ensure t
@@ -66,6 +53,19 @@
 (use-package helm-ag
   :ensure t
   :commands helm-ag)
+
+
+;;(add-to-list 'exec-path "/usr/local/bin/eslint" )
+
+;;flycheck
+
+
+
+
+
+
+
+
 
 
 (provide '5hx-ELPA-packages)

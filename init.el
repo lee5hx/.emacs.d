@@ -7,12 +7,34 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+
+;;exec-path-from-shell
+(use-package exec-path-from-shell
+  :if (and (eq system-type 'darwin) (display-graphic-p))
+  :ensure t
+  :pin melpa-stable
+  :config
+  (progn
+     (when (string-match-p "/zsh$" (getenv "SHELL"))
+      ;; Use a non-interactive login shell.  A login shell, because my
+      ;; environment variables are mostly set in `.zprofile'.
+       (setq exec-path-from-shell-arguments '("-l")))
+
+     (exec-path-from-shell-initialize)))
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 (require '5hx-ui)
 (require '5hx-better-defaults)
 (require '5hx-better-editor)
 ;;(require '5hx-shell)
 (require '5hx-ELPA-packages)
-;;(require '5hx-java)
+;(require '5hx-programming)
+(require '5hx-java)
+;;(require '5hx-eclim)
+
+;;(require '5hx-javascript)
 (require '5hx-keybinds)
 
 ;; 快速打开配置文件

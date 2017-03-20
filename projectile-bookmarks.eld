@@ -1,1 +1,1 @@
-("~/emacs-confs/lee5hx/")
+("~/emacs-confs/lee5hx/" "~/workspace/CAP/" "~/workspace/sjob/" "~/Works/java_projects/CAP/" "~/Works/java_projects/sjob/")
