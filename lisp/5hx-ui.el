@@ -158,4 +158,33 @@
 
 
 
+(require 'random-splash-image)
+(setq random-splash-image-dir (concat (getenv "HOME") "/.emacs.d/splash-images"))
+(random-splash-image-set)
+(defun use-fancy-splash-screens-p ()
+  "Return t if fancy splash screens should be used."
+  (when (and (display-graphic-p)
+             (or (and (display-color-p)
+          (image-type-available-p 'xpm))
+                 (image-type-available-p 'pbm)))
+    (let ((frame (fancy-splash-frame)))
+      (when frame
+  (let* ((img (create-image (fancy-splash-image-file)))
+         (image-height (and img (cdr (image-size img nil frame))))
+         ;; We test frame-height so that, if the frame is split
+         ;; by displaying a warning, that doesn't cause the normal
+         ;; splash screen to be used.
+         (frame-height (1- (frame-height frame))))
+   ;; The original value added to the `image-height' for the test was 19; however,
+   ;; that causes the test to fail on X11 by about 1.5 -- so use 17 instead.
+    (> frame-height (+ image-height 17)))))))
+(use-fancy-splash-screens-p)
+
+
+
+
+;;(setq fancy-splash-image (expand-file-name "~/.emacs.d/splash-images/my_no001_picture.png"))
+
+
+
 (provide '5hx-ui)

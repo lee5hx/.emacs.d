@@ -46,3 +46,4 @@
 (depends-on "vimish-fold")
 (depends-on "which-key")
 (depends-on "zenburn-theme")
+(depends-on "random-splash-image")
