@@ -1,4 +1,3 @@
-
 ;;(load-theme 'monokai 1)
 ;;monokai-theme
 ;;cyberpunk-theme
@@ -48,10 +47,11 @@
 
 ;;Do not show thees modes in the mode line.
 ;;(require 'diminish)
+
 ;;(diminish 'visual-line-mode)
 ;;(diminish 'abbrev-mode)
 
-;;ace-window
+;;ace-windowa
 (use-package ace-window
   :init
   (ace-window-display-mode t))
@@ -65,16 +65,16 @@
 
 ;;powerline
 
-(when (image-type-available-p 'xpm)
- (use-package powerline
-     :config
-   (setq powerline-display-buffer-size nil)
-   (setq powerline-display-mule-info nil)
-   (setq powerline-display-hud nil)
+;; (when (image-type-available-p 'xpm)
+;;  (use-package powerline
+;;      :config
+;;    (setq powerline-display-buffer-size nil)
+;;    (setq powerline-display-mule-info nil)
+;;    (setq powerline-display-hud nil)
 
-   (when (display-graphic-p)
-     (powerline-default-theme)
-    (remove-hook 'focus-out-hook 'powerline-unset-selected-window))))
+;;    (when (display-graphic-p)
+;;      (powerline-default-theme)
+;;     (remove-hook 'focus-out-hook 'powerline-unset-selected-window))))
 
 
 
@@ -104,38 +104,48 @@
 
 
 ;;spaceline
-; ;;(use-package spaceline :ensure t)
 
-; (use-package spaceline-config
-;   :ensure nil
-;   :after spaceline
-;   :config
-;   (setq-default powerline-default-separator 'wave
-;                 powerline-height 18
-;                 spaceline-highlight-face-func 'spaceline-highlight-face-modified)
-;   (spaceline-toggle-persp-name-off)
-;   (spaceline-toggle-workspace-number-off)
-;   (spaceline-toggle-version-control-on)
-;   (spaceline-emacs-theme)
-;   (spaceline-define-segment version-control
-;     "Version control information."
-;     (powerline-raw (s-trim vc-mode))
-;     :when vc-mode))
 
+;;(use-package spaceline :ensure t)
+
+;; (use-package spaceline-config
+;;   :ensure nil
+;;   :after spaceline
+;;   :config
+;;   (setq-default powerline-default-separator 'wave
+;;                 powerline-height 18
+;;                 spaceline-highlight-face-func 'spaceline-highlight-face-modified)
+;;   (spaceline-toggle-persp-name-off)
+;;   (spaceline-toggle-workspace-number-off)
+;;   (spaceline-toggle-version-control-on)
+;;   (spaceline-emacs-theme)
+;;   (spaceline-define-segment version-control
+;;     "Version control information."
+;;     (powerline-raw (s-trim vc-mode))
+;;     :when vc-mode))
+
+;;(require 'spaceline)
+(window-numbering-mode 1)
 
 (require 'spaceline-config)
-(spaceline-spacemacs-theme)
+;;(spaceline-emacs-theme)
 (setq-default powerline-default-separator 'wave
-                powerline-height 20
-                spaceline-highlight-face-func 'spaceline-highlight-face-modified)
-  (spaceline-toggle-persp-name-off)
-  (spaceline-toggle-workspace-number-off)
-  (spaceline-toggle-version-control-on)
-  (spaceline-emacs-theme)
-  (spaceline-define-segment version-control
+                powerline-height 18
+                spaceline-highlight-face-func 'spaceline-highlight-face-modified
+		;;powerline-default-separator 'utf-8-lang
+		;;ns-use-srgb-colorspace nil
+		)
+(spaceline-toggle-window-number-on)
+(spaceline-toggle-persp-name-off)
+(spaceline-toggle-workspace-number-off)
+(spaceline-toggle-version-control-on)
+
+
+(spaceline-define-segment version-control
     "Version control information."
     (powerline-raw (s-trim vc-mode))
     :when vc-mode)
+(spaceline-emacs-theme)
 
 
 
@@ -155,6 +165,35 @@
 (global-set-key [f8] 'neotree-toggle)
 
 ;;(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
+
+
+(require 'random-splash-image)
+(setq random-splash-image-dir (concat (getenv "HOME") "/.emacs.d/splash-images"))
+(random-splash-image-set)
+(defun use-fancy-splash-screens-p ()
+  "Return t if fancy splash screens should be used."
+  (when (and (display-graphic-p)
+             (or (and (display-color-p)
+          (image-type-available-p 'xpm))
+                 (image-type-available-p 'pbm)))
+    (let ((frame (fancy-splash-frame)))
+      (when frame
+  (let* ((img (create-image (fancy-splash-image-file)))
+         (image-height (and img (cdr (image-size img nil frame))))
+         ;; We test frame-height so that, if the frame is split
+         ;; by displaying a warning, that doesn't cause the normal
+         ;; splash screen to be used.
+         (frame-height (1- (frame-height frame))))
+   ;; The original value added to the `image-height' for the test was 19; however,
+   ;; that causes the test to fail on X11 by about 1.5 -- so use 17 instead.
+    (> frame-height (+ image-height 17)))))))
+(use-fancy-splash-screens-p)
+
+
+
+
+;;(setq fancy-splash-image (expand-file-name "~/.emacs.d/splash-images/my_no001_picture.png"))
 
 
 

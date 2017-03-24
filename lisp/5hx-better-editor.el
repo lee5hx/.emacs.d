@@ -1,7 +1,8 @@
 ;;(require 'hungry-delete)
+
+
+
 (global-hungry-delete-mode)
-
-
 
 (use-package ivy
   :ensure t
@@ -151,8 +152,6 @@
   (setq global-auto-revert-non-file-buffers t
 	auto-revert-verbose nil))
 
-
-
 (use-package multiple-cursors
   :ensure t
   :init (require 'multiple-cursors)
@@ -180,6 +179,91 @@
   )
   ;;(add-to-list 'yas-snippet-dirs "/Users/lee5hx/src/github/elisp/yasnippet-snippets")
 ;;(add-to-list 'yas-snippet-dirs "$$DIRECTORY_WHERE_YOU_CLONE
+
+(use-package auto-yasnippet
+  :ensure t
+  :config
+  (global-set-key (kbd "C-o") #'aya-open-line)
+  (global-set-key (kbd "H-w") #'aya-create)
+  (global-set-key (kbd "H-w") #'aya-expand))
+
+
+
+
+;; (defun eos/setup-helm-gtags ()
+;;   (interactive)
+;;   ;; this variables must be set before load helm-gtags
+;;   ;; you can change to any prefix key of your choice
+;;   (setq helm-gtags-prefix-key "\C-cg")
+;;   (setq helm-gtags-ignore-case t
+;;         helm-gtags-auto-update t
+;;         helm-gtags-use-input-at-cursor t
+;;         helm-gtags-pulse-at-cursor t
+;;         helm-gtags-suggested-key-mapping t)
+;;   (use-package helm-gtags
+;;     :ensure t
+;;     :init (helm-gtags-mode t)
+;;     :diminish "")
+;;   ;; key bindings
+;;   (define-key helm-gtags-mode-map (kbd "M-S") 'helm-gtags-select)
+;;   (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+;;   (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+;;   (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+;;   (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
+
+
+
+
+(use-package ggtags
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode )
+                 ;;(eos/setup-semantic-mode)
+                  ;; helm-gtags
+                  ;;(eos/setup-helm-gtags)
+                  ;; regular gtags
+                  ;;(my/setup-ggtags)
+		  (ggtags-mode 1)
+                  )))))
+
+
+(with-eval-after-load 'ggtags
+  (define-key ggtags-mode-map (kbd "M-.") nil)
+  (define-key ggtags-mode-map (kbd "M-,") nil))
+
+
+;; key bindings
+  ;; (define-key helm-gtags-mode-map (kbd "M-S") 'helm-gtags-select)
+  ;; (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+ ;; (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+  ;; (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+  ;; (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
+
+
+(use-package helm-gtags
+  :ensure t
+  :commands (helm-gtags-mode)
+  :bind (("M-." . helm-gtags-dwim)
+         ("M-," . helm-gtags-pop-stack)
+	 ("M-S" . helm-gtags-select)
+	 ("C-c <" . helm-gtags-previous-history)
+	 ("C-c >" . helm-gtags-next-history)
+	 )
+
+
+  :config
+  (custom-set-variables
+   '(helm-gtags-path-style 'relative)
+   '(helm-gtags-ignore-case t)
+   '(helm-gtags-auto-update t)))
+
+
+
+
 
 
 

@@ -40,6 +40,9 @@
 ;;(global-set-key (kbd "C-x l") 'counsel-locate)
 ;;(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 
+;;(global-set-key (kbd "C-v") 'scroll-down)
+;;(global-set-key (kbd "M-v") 'scroll-up)
+
 
 ;;shell
 ;;(global-set-key (kbd "C-x m") 'shell)
@@ -55,8 +58,6 @@
 
 
 (global-set-key (kbd "s-e") 'recentf-open-files)
-
-
 (global-set-key (kbd "M-;") 'comment-dwim-2)
 
 

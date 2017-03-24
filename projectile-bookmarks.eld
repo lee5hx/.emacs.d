@@ -1,1 +1,1 @@
-("~/emacs-confs/lee5hx/" "~/Works/java_projects/gaias/gaia/" "~/Works/java_projects/gaias/uranus/" "~/Works/java_projects/sjob/" "~/Works/java_projects/gaias/" "~/workspace/CAP/" "~/workspace/sjob/" "~/Works/java_projects/CAP/")
+("~/emacs-confs/lee5hx/" "~/Works/java_projects/gaia_nginx_lua/" "~/Works/java_projects/gaias/uranus/" "~/Works/java_projects/gaias/gaia/" "~/Works/java_projects/sjob/" "~/Works/java_projects/gaias/" "~/workspace/CAP/" "~/workspace/sjob/" "~/Works/java_projects/CAP/")

@@ -3,6 +3,13 @@
 (delete-selection-mode 1)
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+
 
 (global-hl-line-mode 1)
 
@@ -21,8 +28,7 @@
 
 ;;Display the running program and the selected buffer in the frame title.
 (setq frame-title-format
-      '("" invocation-name ": " (:eval (replace-regexp-in-string
-                                        "^ +" "" (buffer-name)))))
+      '("" invocation-name ": " (:eval (replace-regexp-in-string "^ +" "" (buffer-name)))))
 
 ;;End of file
 ;;Don’t add new lines past end of file, and indicate unused lines at the end of the window with a small image in the left fringe.
@@ -33,7 +39,7 @@
 
 
 ;;Hi Lock todo 回头再折腾这个
-;;(setq hi-lock-auto-select-face t)
+;;(setq hi-lock-auto-select-face nil)
 
 
 ;;Remove trailing whitespace

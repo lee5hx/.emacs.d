@@ -24,6 +24,10 @@
 	    )))
 
 
+(with-eval-after-load 'meghanada
+ (define-key meghanada-mode-map (kbd "M-.") nil)
+ (define-key meghanada-mode-map (kbd "M-,") nil))
+
 
 
 
