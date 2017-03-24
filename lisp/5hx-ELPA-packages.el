@@ -1,4 +1,3 @@
-
 ;;Magit
 (use-package magit
   :ensure t
@@ -59,13 +58,11 @@
 
 ;;flycheck
 
-
-
-
-
-
-
-
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 (provide '5hx-ELPA-packages)
+
+
+;;; 5hx-ELPA-packages.el ends here

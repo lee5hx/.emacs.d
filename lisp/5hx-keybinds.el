@@ -57,5 +57,8 @@
 (global-set-key (kbd "s-e") 'recentf-open-files)
 
 
+(global-set-key (kbd "M-;") 'comment-dwim-2)
+
+
 
 (provide '5hx-keybinds)

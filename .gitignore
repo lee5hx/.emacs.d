@@ -1,6 +1,9 @@
 auto-save-list
 .cask
+.mc-lists.el
 elpa
 anaconda-mode
 company-statistics-cache.el
+semanticdb/
+url/
 */#*

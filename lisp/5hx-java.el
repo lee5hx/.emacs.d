@@ -30,7 +30,7 @@
 
     (global-company-mode t)
     (setq eclim-auto-save t
-          eclimd-wait-for-process t
+          eclimd-wait-for-process nil
           eclimd-default-workspace "~/workspace/"
           help-at-pt-display-when-idle t
           help-at-pt-timer-delay 0.1
@@ -80,3 +80,5 @@
 ;;    (gradle-mode 1))
 
 (provide '5hx-java)
+
+;;; 5hx-java.el ends here

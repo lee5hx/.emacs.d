@@ -1,12 +1,17 @@
 
-
 ;;(load-theme 'monokai 1)
 ;;monokai-theme
 ;;cyberpunk-theme
-(use-package monokai-theme
-  :ensure t
-  :config
-  (load-theme 'monokai t))
+;;color-theme-sanityinc-tomorrow
+; (use-package color-theme-sanityinc-tomorrow
+;   :ensure t
+;   :config
+;   ('color-theme-sanityinc-tomorrow-night)
+
+
+(require 'color-theme-sanityinc-tomorrow)
+;;(color-theme-sanityinc-tomorrow-day t)
+;;(load-theme 'color-theme-sanityinc-tomorrow-day 1)
 
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 (tool-bar-mode -1)
@@ -21,14 +26,15 @@
 (setq cursor-type 'bar)
 
 ;; 关闭启动帮助画面
-(setq inhibit-splash-screen 1)
-
-;; 关闭缩进 (第二天中被去除)
-;; (electric-indent-mode -1)
+;;(setq inhibit-splash-screen 1)
 
 ;; 更改显示字体大小 16pt
 ;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
-(set-face-attribute 'default nil :height 120)
+;;(set-face-attribute 'default nil :height 120)
+
+(when (featurep 'ns-win)
+  (custom-set-faces
+   '(default ((t (:height 120 :width normal :family "Monaco"))))))
 
 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
@@ -145,7 +151,10 @@
   :config
   (beacon-mode 1))
 
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
+;;(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 
 

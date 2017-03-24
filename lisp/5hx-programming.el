@@ -49,15 +49,12 @@
   :ensure t
   :commands fic-mode
   :config
-    (add-hook 'c++-mode-hook 'fic-mode)
-    (add-hook 'c-mode-hook 'fic-mode)
+    ;;(add-hook 'c++-mode-hook 'fic-mode)
+    ;;(add-hook 'c-mode-hook 'fic-mode)
     (add-hook 'java-mode-hook 'fic-mode)
-    (add-hook 'sala-mode-hook 'fic-mode)
-    (add-hook 'python-mode-hook 'fic-mode)
-    (add-hook 'php-mode-hook 'fic-mode))
-
-
-
-
+    ;;(add-hook 'sala-mode-hook 'fic-mode)
+    ;;(add-hook 'python-mode-hook 'fic-mode)
+    ;;(add-hook 'php-mode-hook 'fic-mode)
+    )
 
 (provide '5hx-programming)

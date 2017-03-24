@@ -143,5 +143,47 @@
   (autoload 'goto-last-change "goto-last-change"
     "Set point to the position of the last change." t))
 
+(use-package auto-revert
+  :diminish auto-revert-mode
+  :config
+  (global-auto-revert-mode 1)
+  (add-hook 'dired-mode-hook 'auto-revert-mode)
+  (setq global-auto-revert-non-file-buffers t
+	auto-revert-verbose nil))
+
+
+
+(use-package multiple-cursors
+  :ensure t
+  :init (require 'multiple-cursors)
+  :bind (("C-c m c" . mc/edit-lines)
+         ("C->"         . mc/mark-next-like-this)
+         ("C-<"         . mc/mark-previous-like-this)
+         ("C-M->"       . mc/unmark-next-like-this)
+         ("C-M-<"       . mc/unmark-previous-like-this)
+         ("C-c C-<"     . mc/mark-all-like-this)
+         ("C-!"         . mc/mark-next-symbol-like-this)
+         ("C-x C-m"     . mc/mark-all-dwim)
+	 ("C-S-<mouse-1>" . mc/add-cursor-on-click)
+
+	 ))
+
+
+(use-package yasnippet
+  :ensure t
+  :diminish yas-minor-mode
+  :init
+  (yas-global-mode 1)
+  :config
+  ;; (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+  (add-to-list 'yas-snippet-dirs "/Users/lee5hx/src/github/elisp/yasnippet-snippets")
+  )
+  ;;(add-to-list 'yas-snippet-dirs "/Users/lee5hx/src/github/elisp/yasnippet-snippets")
+;;(add-to-list 'yas-snippet-dirs "$$DIRECTORY_WHERE_YOU_CLONE
+
+
+
+
+
 
 (provide '5hx-better-editor)
