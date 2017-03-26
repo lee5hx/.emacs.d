@@ -52,3 +52,4 @@
 (depends-on "which-key")
 (depends-on "window-numbering")
 (depends-on "zenburn-theme")
+(depends-on "random-splash-image")

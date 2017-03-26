@@ -6,4 +6,5 @@ anaconda-mode
 company-statistics-cache.el
 semanticdb/
 url/
+/etc/*
 */#*
