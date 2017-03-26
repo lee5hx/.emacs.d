@@ -128,7 +128,7 @@
 (window-numbering-mode 1)
 
 (require 'spaceline-config)
-;;(spaceline-emacs-theme)
+(spaceline-emacs-theme)
 (setq-default powerline-default-separator 'wave
                 powerline-height 18
                 spaceline-highlight-face-func 'spaceline-highlight-face-modified
@@ -145,7 +145,7 @@
     "Version control information."
     (powerline-raw (s-trim vc-mode))
     :when vc-mode)
-(spaceline-emacs-theme)
+;;(spaceline-emacs-theme)
 
 
 
