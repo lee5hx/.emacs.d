@@ -7,6 +7,7 @@
 (depends-on "avy")
 (depends-on "base16-theme")
 (depends-on "beacon")
+(depends-on "cider")
 (depends-on "clipmon")
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "comment-dwim-2")
@@ -52,4 +53,3 @@
 (depends-on "which-key")
 (depends-on "window-numbering")
 (depends-on "zenburn-theme")
-(depends-on "random-splash-image")

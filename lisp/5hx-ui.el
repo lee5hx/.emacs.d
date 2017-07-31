@@ -166,8 +166,6 @@
 
 ;;(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-
-
 (require 'random-splash-image)
 (setq random-splash-image-dir (concat (getenv "HOME") "/.emacs.d/splash-images"))
 (random-splash-image-set)

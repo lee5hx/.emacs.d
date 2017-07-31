@@ -5,8 +5,7 @@
 
 
 ;;拷贝环境变量到emacs-shell
-(when (memq window-system '(mac ns))
-  (setq exec-path-from-shell-arguments '("-l"))
+(when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
 
@@ -17,18 +16,18 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;;exec-path-from-shell
-; (use-package exec-path-from-shell
-;   :if (and (eq system-type 'darwin) (display-graphic-p))
-;   :ensure t
-;   :pin melpa-stable
-;   :config
-;   (progn
-;      (when (string-match-p "/zsh$" (getenv "SHELL"))
-;       ;; Use a non-interactive login shell.  A login shell, because my
-;       ;; environment variables are mostly set in `.zprofile'.
-;        (setq exec-path-from-shell-arguments '("-l")))
+;; (use-package exec-path-from-shell
+;;   :if (and (eq system-type 'darwin) (display-graphic-p))
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :config
+;;   (progn
+;;      (when (string-match-p "/zsh$" (getenv "SHELL"))
+;;       ;; Use a non-interactive login shell.  A login shell, because my
+;;       ;; environment variables are mostly set in `.zprofile'.
+;;        (setq exec-path-from-shell-arguments '("-l")))
 
-;      (exec-path-from-shell-initialize)))
+;;      (exec-path-from-shell-initialize)))
 
 
 (require 'mac-port-keys)
@@ -43,6 +42,8 @@
 ;;(require '5hx-java)
 ;;(require '5hx-eclim)
 (require '5hx-lua)
+(require '5hx-clj)
+(require '5hx-org)
 ;;(require '5hx-javascript)
 (require '5hx-keybinds)
 
