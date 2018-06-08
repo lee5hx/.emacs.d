@@ -58,8 +58,8 @@
 
 
 (global-set-key (kbd "s-e") 'recentf-open-files)
-(global-set-key (kbd "M-;") 'comment-dwim-2)
+(global-set-key (kbd "s-/") 'comment-dwim-2) ;
 
-
+;; sfasf
 
 (provide '5hx-keybinds)
