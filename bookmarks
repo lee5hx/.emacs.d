@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/Dropbox/ORG/todo.org")
- (front-context-string . "** TODO GAIA-232")
- (rear-context-string . "pageId=13993066\n")
- (position . 3437))
+ (front-context-string . "** TODO \n* TODO ")
+ (rear-context-string . "017-11-02 Thu>*\n")
+ (position . 3774))
 ("org-capture-last-stored-marker"
  (filename . "~/Dropbox/ORG/todo.org")
  (front-context-string)

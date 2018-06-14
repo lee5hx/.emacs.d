@@ -144,7 +144,7 @@
   (autoload 'goto-last-change "goto-last-change"
     "Set point to the position of the last change." t))
 
-(use-package auto-revert
+(use-package autorevert
   :diminish auto-revert-mode
   :config
   (global-auto-revert-mode 1)

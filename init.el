@@ -1,6 +1,7 @@
  ;;; (package-initialize)
 
-(require 'cask "~/.cask/cask.el")
+;;(require 'cask "~/.cask/cask.el")
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 
 
@@ -33,7 +34,7 @@
 (require 'mac-port-keys)
 (require '5hx-ui)
 (require '5hx-better-defaults)
-;;(require '5hx-meghanada)
+(require '5hx-meghanada)
 (require '5hx-better-editor)
 ;;(require '5hx-shell)
 (require '5hx-ELPA-packages)
